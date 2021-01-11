@@ -48,7 +48,7 @@ Scrivere dunque il `main` che:
 - stampi a video la somma degli elementi dell'albero aggiornato
 
 ```cpp
-void trasforma_e_somma(MyBinTree<T> &bin)
+int trasforma_e_somma(MyBinTree<T> &bin)
 {
   int somma = 0;
   previsita(bin, bin.radice(), somma);
@@ -73,5 +73,33 @@ void previsita(MyBinTree<T> &bin, MyBinTree<T>::Nodo nodo, int &somma)
   if (!bin.dx_vuoto(nodo)) {
     previsita(bin, bin.dx(nodo), somma);
   }
+}
+
+int main() 
+{
+  MyBinTree<int> bin;
+  MyBinTree<int>::Nodo radice, nodo;
+  
+  bin.inserisci_radice(radice);
+  bin.scrivi(6, radice);
+  bin.inserisci_figlio_sx(radice);
+  bin.scrivi(3, bin.sx(radice));
+  bin.inserisci_figlio_dx(radice);
+  bin.scrivi(2, bin.dx(radice));
+  
+  nodo = bin.sx(radice);
+  bin.inserisci_figlio_sx(nodo);
+  bin.scrivi(1, bin.sx(nodo));
+  bin.inserisci_figlio_dx(nodo);
+  bin.scrivi(4, bin.dx(nodo));
+  
+  nodo = bin.dx(nodo);
+  bin.inserisci_figlio_dx(nodo);
+  bin.scrivi(7, bin.dx(nodo));
+  
+  int valore = bin.trasforma_e_somma(bin, bin.radice());
+  cout << "Valore: " << valore << endl;
+  
+  return 0;
 }
 ```
