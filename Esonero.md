@@ -1,4 +1,7 @@
-## Esonero
+# Esonero 1
+
+## Laboratorio
+
 Si assuma di avere una classe C++ per l'implementazione della lista:
 
 ```cpp
