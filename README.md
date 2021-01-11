@@ -1,5 +1,5 @@
-# Laboratorio
-Esercizi di laboratorio di Algoritmi e Strutture Dati
+# Esercizi
+Esercizi teorici e di laboratorio di Algoritmi e Strutture Dati
 
 ## Esonero
 Si assuma di avere una classe C++ per l'implementazione della lista:
