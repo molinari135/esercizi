@@ -1,245 +1,98 @@
 # Esercizi
 Esercizi teorici e di laboratorio di Algoritmi e Strutture Dati
 
-## Esonero
-Si assuma di avere una classe C++ per l'implementazione della lista:
+## Contenuto
+
+### Esonero 1
+**Es. 1 - Estensione di una struttura dati esistente, con nuovi operatori**
+Data la struttura dati **lista**, scrivere specifica sintattica e semantica di due nuovi operatori:
+- **aggiungi_ad_estremi**, che aggiunge un dato elemento ad entrambi gli estremi della lista
+- **rimuovi_metà**, che rimuove la prima metà (i primi n/2 elementi) della lista
+
+**Es. 2** Descrivere brevemente le diverse implementazioni della struttura dati **Pila**, enfatizzando vantaggi e svantaggi in termini di complessità computazionale dei singoli operatori, anche attraverso esempi.
+
+**Es. 3** Si consideri il seguente algoritmo che lavora sull'array V (costituito da n elementi). Stimare la complessità dell'algoritmo nel caso pessimo e nel caso ottimo, motivando la risposta e illustrando in quali casi l'algoritmo si trova nelle condizione ottime e pessime.
 
 ```cpp
-template <class T>
-class MyList {
-  public:
-    typedef Nodo* position;
-            
-    // costruttori e distruttori
-    MyList();
-    ...
-    // operatori
-    bool vuota() const;
-    T leggi(position) const;
-    void write(const T &, position);
-    position begin() const;
-    position successivo(position) const;
-    position precedente(position) const;
-    void inserisci(const T &, position);
-    void rimuovi(position);
-    bool ultimo(position);
-  private:
-    ...
-}
-```
-        
-Scrivere la funzione `processa_liste` che prenda in input tre liste di interi L1, L2, ed L3, scorra tutti gli elementi della lista L1 e:
-- aggiunga tutti gli elementi maggiori di 100 a L2
-- aggiunga tutti gli elementi minori di 50 ad L3
-- lasci solamente gli elementi compresi tra 50 e 100 (inclusi) in L1
-
-Scrivere dunque il `main` che:
-- inizializzi la lista L1 con i valori <30, 40, 50, 60, 80, 120>
-- crei L2 ed L3 vuote
-- invochi la funzione `processa_liste` passando L1, L2 ed L3
-```cpp
-template <class T> 
-void processa_liste(MyList<T> &L1, MyList<T> &L2, MyList<T> &L3
+analizza_array(int V[], int n)
 {
-  MyList<T>::position indice1;
-  MyList<T>::position indice2;
-  MyList<T>::position indice3;
-          
-  while(!L2.ultimo(indice2)) {
-    while(!L1.ultimo(indice1) && !L2.ultimo(indice2)) {
-      T elem = L1.leggi(indice1);
-      if (elem > 100) {
-        L2.inserisci(elem, indice2);
-      }
-    
-      L1.successivo(indice1);
-      
-      if (L2.ultimo(indice2) {
-        indice2 = L2.begin();
-      }
-      
-      L2.successivo(indice2);
-    }
+  for (int i = 0; i < n; i++)
+    cout << "Elemento:" << V[i];
+  if (n%2 == 0)
+  {
+    for (int i = 0; i < n; i++)
+      for (int j = i+1; j < n: j++)
+        cout << "Vicini:" << V[i] << "," << V[j];
   }
-          
-  while(!L3.ultimo(indice3)) {
-    while(!L1.ultimo(indice1) && !L3.ultimo(indice3)) {
-      T elem = L1.leggi(indice1);
-      if (elem < 50) {
-        L3.inserisci(elem, indice3);
-      }
-    
-      L1.successivo(indice1);
-      
-      if (L3.ultimo(indice3) {
-        indice3 = L3.begin();
-      }
-      
-      L3.successivo(indice3);
-    }
-  }
-          
-int main()
-{
-  MyList<int> L1;
-  MyList<int> L2;
-  MyList<int> L3;
-            
-  MyList<int>::position indice1;
-            
-  indice1 = L1.begin();
-            
-  L1.inserisci(30, indice1 = L1.successivo(indice1));
-  L1.inserisci(40, indice1 = L1.successivo(indice1));
-  L1.inserisci(50, indice1 = L1.successivo(indice1));
-  L1.inserisci(60, indice1 = L1.successivo(indice1));
-  L1.inserisci(80, indice1 = L1.successivo(indice1));
-  L1.inserisci(120, indice1 = L1.successivo(indice1));
-            
-  L1.processa_liste(L1, L2, L3);
 }
 ```
 
-## Esonero 2
+**Es. 4 - Progettare una nuova struttura dati**
+Si vuole progettare una struttura dati per la gestione di uno **sportello** alla posta.
+Completare la specifica della struttura dati **sportello**, fornendo la specifica semantica per mezzo di PRE e POST condizioni, rispetto alla seguente specifica sintattica:
 
-Si assuma di avere una classe C++ per l'implementazione di alberi binari e una per l'implementazione di una lista, che presentino le seguenti funzioni:
+**domini**: sportello, cliente, intero
+
+**operatori**:
+* creaSportello() &rightarrow; sportello
+  * crea lo sportello, con nessun cliente
+* aggiungiCliente(sportello, cliente) &rightarrow; sportello
+  * aggiunge il cliente in fila per lo sportello
+* processaCliente(sportello) &rightarrow; sportello
+  * processa il prossimo cliente in fila allo sportello
+* contaClienti(sportello) &rightarrow; intero
+  * conta i clienti ancora in fila allo sportello
+* aggiungiClienteAmico(sportello, cliente) &rightarrow; sportello
+  * aggiunge il cliente in fila in prima posizione
+
+### Appello 1 - Esonero 2
+**Es. 1 - Estensione di una struttura dati esistente, con nuovi operatori**
+Data la struttura dati **albero binario**, scrivere specifica sintattica e semantica di due nuovi operatori (quando possibile, fare uso degli operatori esistenti dell'albero binario):
+- **cambia_valore_speciale**, che dato un nodo x ed un valore v, scrive il valore v nel figlio sinistro di x, se quest'ultimo esiste, altrimenti lo scrive in x
+- **incrementa_figli**, che dato un nodo x, incrementa di 1 il valore contenuto nei suoi figli
+
+**Es. 2** Descrivere brevemente le diverse implementazioni della struttura dati **Grafo**, enfatizzando vantaggi e svantaggi in termini di complessità computazionale dei singoli operatori, anche attraverso esempi.
+
+**Es. 3 - Progettare una nuova struttura dati**
+Si vuole progettare una struttura dati per la gestione delle informazioni relative alle persone di un città insieme ai loro vicini (a distanza di 1km). Completare la specifica della struttura dati **città**, fornnendo la specifica semantica per mezzo di PRE e POST condizioni, rispetto alla seguente specifica sintattica:
+
+**domini**: città, abitante, lista
+
+**operatori**:
+* creaCittà() &rightarrow; città
+  * crea la città, inizialmente con nessun abitante
+* aggiungiAbitante(città, abitante) &rightarrow; città
+  * aggiunge l'abitante alla città
+* indicaVicino(città, abitante, abitante) &rightarrow; città
+  * memorizza il fatto che due abitanti sono vicini di casa
+* ottieniVicini(città, abitante) &rightarrow; lista
+  * restituisce la lista dei vicini dell'abitante indicato
+* abitanteConPiùVicini(città) &rightarrow; abitante
+  * restituisce l'abitante con più vicini (se non vi sono parimerito)
+  
+**Es. 4 - Tecniche algoritmiche**
+Spiegare il problema dello zaino e descrivere un possibile algoritmo solutivo basato su tecnica greedy.
+
+**Es. 5** Si consideri il seguente algoritmo che lavora sull'array V (costituito da n elementi). Stimare la complessità dell'algoritmo nel caso pessimo e nel caso ottimo, motivando la risposta e illustrando in quali casi l'algoritmo si trova nella condizioni ottime e pessime.
 
 ```cpp
-template <class T>
-class MyBinTree {
-  public:
-    typedef int Nodo;
-    
-    MyBinTree();
-    bool vuoto() const;
-    Nodo radice() const;
-    Nodo padre(Nodo) const;
-    Nodo sx(Nodo) const;
-    Nodo dx(Nodo) const;
-    bool sx_vuoto(Nodo) const;
-    bool dx_vuoto(Nodo) const;
-    void inserisci_radice(Nodo);
-    void inserisci_figlio_sx(Nodo);
-    void inserisci_figlio_dx(Nodo);
-    T leggi(Nodo) const;
-    void scrivi(Nodo, const T &) const;
+analizza_array(int V[], int n, int val)
+{
+  for (int i = 0; i < n; i++)
+    cout << "Elemento:" << V[i];
+  if (V[0] == val)
+    cout << "Elemento val in prima posizione";
+  else
+    for (int i = 0; i < n; i++)
+      if (V[i] == val)
+        cout << "Val è presente in poszione:" << i;
 }
 ```
 
-```cpp
-template <class T>
-class MyList {
-  public:
-    typedef Cella* position;
-    
-    MyList();
-    bool vuota() const;
-    T leggi(position) const;
-    void scrivi(const T &, position);
-    position begin() const;
-    position successivo(position) const;
-    position precedente(position) const;
-    void inserisci(const T &, position);
-    void rimuovi(position);
-    bool ultimo(position);
-}
-```
-
-Scrivere la funzione `processa_pari` che prenda in input un albero binario e:
-- crei una lista
-- visiti l'albero e aggiunga alla lista i valori pari contenuti nell'albero
-- restituisca la lista
-
-Scrivere dunque il `main` che:
-- crei il seguente albero di interi:
-
-```      [1]
-        /   \
-      [3]   [4]
-     /   \    \
-   [8]   [2]  [6]
-```
-- chiami la funzione `processa_pari`, passando l'albero in input
-- stampi il contenuto della lista ottenuta come risultato
-
-```cpp
-MyList<T> processa_pari(const MyBinTree<T> &BT, MyBinTree<T>::Nodo n) 
-{
-  MyList<T> List;
-  visita(T, n, List);
-  return List;
-}
-
-void visita(MyBinTree<T> &BT, MyBinTree<T>::Nodo n, MyList<T> L) 
-{
-  T elem = BT.leggi(n);
-  
-  if (pari(BT, n)) {
-    L.inserisci(elem, L.begin());
-  }
-  
-  if (!BT.sx_vuoto(n)) {
-    visita(BT, BT.sx(n), L);
-  }
-  
-  if (!BT.dx_vuoto(n)) {
-    visita(BT, BT.dx(n), L);
-  }
-}
-
-bool pari(MyBinTree<T> &BT, MyBinTree<T>::Nodo n) 
-{
-  return visita_pari(BT, n);
-}
-
-bool visita_pari(MyBinTree<T> &BT, MyBinTree<T>::Nodo n) 
-{
-  T elem = BT.leggi(n);
-  
-  if (elem % 2 == 0) {
-    return true;
-  }
-  
-  if (!BT.sx_vuoto(n)) {
-    bool check_sx = visita_pari(BT, BT.sx(n));
-    if (check_sx) {
-      return true;
-    }
-  }
-  
-  if (!BT.dx_vuoto(n)) {
-    bool check_dx = visita_pari(BT, BT.dx(n));
-    if (check_dx) {
-      return true;
-    }
-  }
-  
-  return false;
-}
-
-int main()
-{
-  MyBinTree<int> T;
-  MyBinTree<int>::Nodo radice, n;
-  MyList<int> List;
-  
-  T.inserisci_radice(radice);
-  T.scrivi(radice, 1);
-  T.inserisci_figlio_sx(radice);
-  T.scrivi(T.sx(radice), 3);
-  T.inserisci_figlio_dx(radice);
-  T.scrivi(T.dx(radice), 4);
-  
-  n = T.sx(radice);
-  T.inserisci_figlio_sinistro(n);
-  T.scrivi(T.sx(n), 8);
-  T.inserisci_figlio_destro(n);
-  T.scrivi(T.dx(n), 2);
-  
-  n = T.dx(radice);
-  T.inserisci_figlio_dx(n);
-  T.scrivi(T.dx(n), 6);
-  
-  List = T.processa_pari(T, T.radice());
-}
-```
+### Appello 2
+### Appello 3
+### Appello 4
+### Appello 5
+### Appello 6
+### Appello 7
+### Appello 8
