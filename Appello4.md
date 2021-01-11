@@ -56,18 +56,22 @@ int trasforma(MyBinTree<T> &bin, MyBinTree<T>::Nodo nodo)
 }
 
 void visita(MyBinTree<T> &bin, MyBinTree<T>::Nodo nodo, int value)
-{
+{ 
+  if (!bin.sx_vuoto(nodo)) {
+    visita(bin, bin.sx(nodo), value);
+  }
+  
   T elem = bin.leggi(nodo);
+  cout << "Corrente: " << elem << endl;
   
-  if (!bin.sx_vuoto(nodo)) {
-    if (bin.dx_vuoto(nodo)) {
-      
-  
-  if (!bin.sx_vuoto(nodo)) {
-    visita(bin, bin.sx(nodo));
+  if (bin.sx_vuoto(nodo) || bin.dx_vuoto(nodo)) {
+    T new_elem = elem + 1;
+    bin.scrivi(nodo, new_elem);
+    value = value + new_elem;
   }
   
   if (!bin.dx(nodo)) {
     visita(bin, bin.dx(nodo));
   }
 }
+```
