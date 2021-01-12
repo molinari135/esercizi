@@ -61,7 +61,7 @@ void visita_simmetrica(MyBinTree<T> bin, MyBinTree<T>::Nodo nodo, int upd)
   }
   
   T elem = bin.leggi(nodo);
-  if (elem % 2 <> 0) {
+  if (elem % 2 != 0) {
     T new_elem = elem + 1;
     bin.scrivi(new_elem, nodo);
     upd = upd + 1;
