@@ -37,6 +37,7 @@ Scrivere dunque il `main` che:
 - inizializzi la lista L1 con i valori <30, 40, 50, 60, 80, 120>
 - crei L2 ed L3 vuote
 - invochi la funzione `processa_liste` passando L1, L2 ed L3
+
 ```cpp
 template <class T> 
 void processa_liste(MyList<T> &L1, MyList<T> &L2, MyList<T> &L3
@@ -46,38 +47,19 @@ void processa_liste(MyList<T> &L1, MyList<T> &L2, MyList<T> &L3
   MyList<T>::position indice3;
           
   while(!L2.ultimo(indice2)) {
-    while(!L1.ultimo(indice1) && !L2.ultimo(indice2)) {
-      T elem = L1.leggi(indice1);
-      if (elem > 100) {
-        L2.inserisci(elem, indice2);
-      }
+    T elem = L1.leggi(indice1);
     
-      L1.successivo(indice1);
-      
-      if (L2.ultimo(indice2) {
-        indice2 = L2.begin();
-      }
-      
-      L2.successivo(indice2);
-    }
-  }
-          
-  while(!L3.ultimo(indice3)) {
-    while(!L1.ultimo(indice1) && !L3.ultimo(indice3)) {
-      T elem = L1.leggi(indice1);
+    if (elem > 100) {
+        L2.inserisci(elem, indice2);
+    } else {
       if (elem < 50) {
         L3.inserisci(elem, indice3);
       }
-    
-      L1.successivo(indice1);
-      
-      if (L3.ultimo(indice3) {
-        indice3 = L3.begin();
-      }
-      
-      L3.successivo(indice3);
     }
+    
+    L1.successivo(indice1);
   }
+}
           
 int main()
 {
