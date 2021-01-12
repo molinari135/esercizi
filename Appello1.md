@@ -76,8 +76,8 @@ void previsita(MyBinTree<T> &bin, MyBinTree<T>::Nodo nodo, MyList<T> &list)
 {
   T elem = bin.leggi(nodo);
   
-  if (cerca_pari(bin)) {
-    list.inserisci(elem, begin());
+  if (elem % 2 == 0) {
+    list.inserisci(elem, list.begin());
   }
   
   if (!bin.sx_vuoto(nodo)) {
@@ -87,36 +87,6 @@ void previsita(MyBinTree<T> &bin, MyBinTree<T>::Nodo nodo, MyList<T> &list)
   if (!bin.dx_vuoto(nodo)) {
     previsita(bin, bin.dx(nodo), list);
   }
-}
-
-bool cerca_pari(MyBinTree<T> &bin)
-{
-  return previsita_pari(bin, bin.radice());
-}
-
-bool previsita_pari(MyBinTree<T> &bin, MyBinTree<T>::Nodo nodo)
-{
-  T elem = bin.leggi(nodo);
-  
-  if (elem % 2 == 0) {
-    return true;
-  }
-  
-  if (!bin.sx_vuoto(nodo)) {
-    bool check_sx = previsita_pari(bin, bin.sx(nodo);
-    if (check_sx) {
-      return true;
-    }
-  }
-  
-  if (!bin.dx_vuoto(nodo)) {
-    bool check_dx = previsita_pari(bin, bin.dx(nodo));
-    if (check_dx) {
-      return true;
-    }
-  }
-  
-  return false;
 }
 
 int main() 
