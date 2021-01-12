@@ -75,7 +75,7 @@ void visita(MyBinTree<T> &bin, MyBinTree<T>::Nodo nodo, MyList<T> pari)
 {
   T elem = bin.leggi(nodo);
   
-  if (cerca_pari(bin)) {
+  if (elem % 2 == 0) {
     pari.inserisci(bin.leggi(nodo), pari.begin());
   }
   
@@ -86,36 +86,6 @@ void visita(MyBinTree<T> &bin, MyBinTree<T>::Nodo nodo, MyList<T> pari)
   if (!bin.dx_vuoto(nodo)) {
     visita(bin, bin.dx(nodo), pari);
   }
-}
-
-bool cerca_pari(MyBinTree<T> &bin)
-{
-  return visita_pari(bin, bin.radice());
-}
-
-bool visita_pari(MyBinTree<T> &bin, MyBinTree<T>::Nodo nodo)
-{
-  T elem = bin.leggi(nodo);
-  
-  if (elem % 2 == 0) {
-    return true;
-  }
-  
-  if (!bin.sx_vuoto(nodo)) {
-    bool check_sx = visita_pari(bin, bin.sx(nodo));
-    if (check_sx) {
-      return true;
-    {
-  }
-  
-  if (!bin.dx_vuoto(nodo)) {
-    bool check_dx = visita_pari(bin, bin.dx(nodo));
-    if (check_dx) {
-      return true;
-    }
-  }
-  
-  return false;
 }
 
 int main()
