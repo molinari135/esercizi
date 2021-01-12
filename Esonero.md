@@ -46,14 +46,16 @@ void processa_liste(MyList<T> &L1, MyList<T> &L2, MyList<T> &L3
   MyList<T>::position indice2;
   MyList<T>::position indice3;
           
-  while(!L2.ultimo(indice2)) {
+  while(!L1.ultimo(indice1)) {
     T elem = L1.leggi(indice1);
     
     if (elem > 100) {
         L2.inserisci(elem, indice2);
+        L1.rimuovi(indice1);
     } else {
       if (elem < 50) {
         L3.inserisci(elem, indice3);
+        L1.rimuovi(indice1);
       }
     }
     
