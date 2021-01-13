@@ -1,9 +1,7 @@
 # Esercizi
 Esercizi teorici e di laboratorio di Algoritmi e Strutture Dati
 
-## Contenuto
-
-### Esonero 1
+## Esonero 1
 **Es. 1 - Estensione di una struttura dati esistente, con nuovi operatori**
 Data la struttura dati **lista**, scrivere specifica sintattica e semantica di due nuovi operatori:
 - **aggiungi_ad_estremi**, che aggiunge un dato elemento ad entrambi gli estremi della lista
@@ -89,10 +87,9 @@ analizza_array(int V[], int n, int val)
 }
 ```
 
-### Appello 2
-### Appello 3
-### Appello 4
-### Appello 5
-### Appello 6
-### Appello 7
-### Appello 8
+## Appello 2
+## Appello 3
+## Appello 4
+## Appello 5
+## Appello 6
+## Appello 7
