@@ -98,7 +98,7 @@
     * `conta_figli_pari(T, x)` < `conta_figli_pari(T, a)`
     
 ## Appello 7
-**Specifica sintattica*
+**Specifica sintattica**
 * conta_tanti_figli(albero, intero) &rightarrow; intero
 * aggiorna_figlio_unico(albero, intero) &rightarrow; albero
 
