@@ -2,9 +2,9 @@
 
 ## Appello 1
 **Specifica semantica**
-* città: insieme di tutti i possibili grafi non orientati G = (N, A) con N insieme finito di elementi di tipo abitante e A sottoinsieme di N x N
-* abitante: insieme finito qualsiasi
-* lista: insieme di tutte le possibili liste < a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub> > di elementi di tipo abitante
+* **città**: insieme di tutti i possibili grafi non orientati G = (N, A) con N insieme finito di elementi di tipo abitante e A sottoinsieme di N x N
+* **abitante**: insieme finito qualsiasi
+* **lista**: insieme di tutte le possibili liste < a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub> > di elementi di tipo abitante
 
 * `creaCittà() = G`
   * **Precondizione:** *nessuna*
@@ -12,7 +12,7 @@
 * `aggiungiAbitante(G, a) = G'`
   * **Precondizione:** G = (N, A), a &notin; N
   * **Postcondizione:** G = (N', A) con N' = N &cup; {a}
-* `indicaVicino(G, a1, a2) = G'
+* `indicaVicino(G, a1, a2) = G'`
   * **Precondizione:** G = (N, A), a1 &in; N, a2 &in; N
   * **Postcondizione:** G = (N, A') con A' = A &cup; {(a1, a2), (a2, a1)}
 * `ottieniVicini(G, a) = l`
@@ -26,9 +26,9 @@
     
 ## Appello 2
 **Specifica semantica**
-* socialnet: insieme di tutti i possibili gradi orientati G = (N, A), con N sottoinsieme finito di elementi di tipo utente e A sottoinsieme di N x N
-* utente: insieme finito qualsiasi
-* lista: insieme di tutte le possibili liste < a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub> > di elementi di tipo utente
+* **socialnet**: insieme di tutti i possibili gradi orientati G = (N, A), con N sottoinsieme finito di elementi di tipo utente e A sottoinsieme di N x N
+* **utente**: insieme finito qualsiasi
+* **lista**: insieme di tutte le possibili liste < a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub> > di elementi di tipo utente
 
 * `creaSocialNetwork() = G`
   * **Precondizione:** *nessuna*
@@ -53,11 +53,11 @@
     
 ## Appello 3
 **Specifica semantica**
-* scacchiera: insieme di possibili matrici n x m di caselle, ciascuna delle quali può essere occupata da elementi di tipo giocatore (pedina) oppure vuota
-* giocatore: pedina, elemento che popola la scacchiera
-* posizione: coppia di coordinate (i per l'indice delle righe, j per l'indice delle colonne)
+* **scacchiera**: insieme di possibili matrici n x m di caselle, ciascuna delle quali può essere occupata da elementi di tipo giocatore (pedina) oppure vuota
+* **giocatore**: pedina, elemento che popola la scacchiera
+* **posizione**: coppia di coordinate (i per l'indice delle righe, j per l'indice delle colonne)
 
-* `creaScacchiera(n, m) = S
+* `creaScacchiera(n, m) = S`
   * **Precondizione:** P = (r, c) con r &le; n, c &le; m
   * **Postcondizione:** S'(r, c) = G
     * &forall; i = 1, 2, ..., n
@@ -68,9 +68,9 @@
   
 ## Appello 4
 **Specifica semantica**
-* catena: insieme di tutte le possibili sequenze di analli accessibili soltanto in testa o in coda
-* anello: {RO, GI, VE}
-* posizione: {T, C}
+* **catena**: insieme di tutte le possibili sequenze di analli accessibili soltanto in testa o in coda
+* **anello**: {RO, GI, VE}
+* **posizione**: {T, C}
 
 * `creaCatena(a) = C`
   * **Precondizione:** *nessuna*
@@ -97,8 +97,8 @@
   
 ## Appello 5
 **Specifica semantica**
-* catena: insieme di tutte le possibili sequenze di anelli accessibili soltanto in testa o in coda
-* anello: {TO, Q, TR}
+* **catena**: insieme di tutte le possibili sequenze di anelli accessibili soltanto in testa o in coda
+* **anello**: {TO, Q, TR}
 * posizione: {T, C}
 
 * `creaCatena(a) = C`
@@ -125,9 +125,9 @@
     
 ## Appello 6
 **Specifica semantica**
-* rete: insieme di tutti i possibili grafi non orientati G = (N, A) con N insieme finito di elementi di tipo nodo e A sottoinsieme di N x N
-* nodo: insieme finito qualsiasi
-* lista: insieme di tutte le possibili liste < a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub> > di elementi di tipo nodo
+* **rete**: insieme di tutti i possibili grafi non orientati G = (N, A) con N insieme finito di elementi di tipo nodo e A sottoinsieme di N x N
+* **nodo**: insieme finito qualsiasi
+* **lista**: insieme di tutte le possibili liste < a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub> > di elementi di tipo nodo
 
 * `creaRete() = G`
   * **Precondizione:** *nessuna*
@@ -149,9 +149,9 @@
     
 ## Appello 7
 **Specifica semantica**
-* catena: insieme di tutte le possibili sequenze di anelli accessibili soltanto in testa
-* anello: {TO, Q, TR}
-* posizione: {T}
+* **catena**: insieme di tutte le possibili sequenze di anelli accessibili soltanto in testa
+* **anello**: {TO, Q, TR}
+* **posizione**: {T}
 
 * `creaCatena(a) = C`
   * **Precondizione:** a &ne; TO
